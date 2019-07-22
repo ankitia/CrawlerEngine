@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: SolarExample
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: jaynil
+Implementation-Vendor-Id: com.ia
+Build-Jdk: 1.8.0_212
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/SolarExample
+Created-By: Maven Integration for Eclipse
+
