@@ -41,11 +41,11 @@
 		            </div>
 		            <!-- /.box-header -->
 		            <!-- form start --> 
-		            <form role="form">
+		            <form role="form" action="insertSearchEngine"  method="post" enctype="multipart/form-data"> 
 		              <div class="box-body">
 		               <div class="form-group">
 		                  <label>Project</label>
-		                  <select class="form-control" style="width: 300px;">
+		                  <select name="projectId" class="form-control" onchange="getDataSet(this)" style="width: 300px;">
 		                        <option value="">Select Project</option>  
 		                    <c:forEach items="${projectList }" var="projectList"> 
 		                    	<option value="${projectList.projectId }">${projectList.name }</option>
@@ -54,23 +54,24 @@
 		                </div>  
 		                <div class="form-group">
 		                  <label for="exampleInputEmail1">Dataset</label>
-		                  <select class="form-control" style="width: 300px;">
+		                  <select name="dataSetId" class="form-control" id="datasetId2" style="width: 300px;">
 		                        <option value="">Select Dataset</option>   
-		                    <c:forEach items="${projectList }" var="projectList"> 
-		                    	<option value="${projectList.projectId }">${projectList.name }</option>
-		                    </c:forEach>
 		                  </select>
+		                </div>
+		                <div class="form-group">
+		                  <label for="exampleInputEmail1">Name</label> 
+		                  <input type="text" class="form-control" id="name"  name="name" placeholder="Name" required style="width: 300px;">
 		                </div> 		                 
 		                <div class="form-group">
-		                  <label for="exampleInputFile">File input</label>
-		                  <input type="file" id="exampleInputFile">
+		                  <label for="exampleInputFile">File input</label> 
+		                  <input type="file" id="exampleInputFile" name="exampleInputFile">
 		                  <p class="help-block">Upload search Keywords csv file.</p>
 		                </div>		                
 		              </div>
 		              <!-- /.box-body -->
 		
 		              <div class="box-footer">
-		                <a href="manageDataset" class="btn btn-primary">Submit</a>
+		                <button type="submit"  class="btn btn-primary" name="Submit">Submit</button> 
 		                <a href="manageDataset" class="btn btn-danger">Back</a>  
 		              </div>
 		            </form> 
@@ -82,9 +83,36 @@
     </section>
     <!-- /.content -->
   </div>
+  
+  
   <!-- /.content-wrapper -->
    <%@include file="include/footer.jsp" %>
 </div>
 	<%@include file="include/common_js.jsp" %>
+	
+ <script type="text/javascript">
+
+function getDataSet(proectId){
+ 	
+	$.ajax({
+		url : "getDatasetProjectList",
+		type : "POST",
+		data :{
+			projectId : proectId.value
+		},
+		success : function(data){
+			$('#datasetId2').empty(); 
+			$('#datasetId2').append('<option value="" >Select Dataset</option>');
+			for (var i = 0; i < data.length; i++) {
+				$("#datasetId2").append("<option value='" + data[i].dataSetId+ "'>" + data[i].dataSetName + "</option>");
+			}
+		}, 
+		error: function(e){
+			console.log("getDataSet--->"+e);
+		}
+	});  
+}
+</script>	
+	   
 </body>
 </html>

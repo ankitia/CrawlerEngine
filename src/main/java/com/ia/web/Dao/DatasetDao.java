@@ -3,6 +3,7 @@ package com.ia.web.Dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.ia.web.Modal.AddressDataMongo;
 import com.ia.web.Modal.Dataset;
 
 
@@ -15,7 +16,11 @@ public interface DatasetDao
 	public ArrayList<Dataset> getDatasetList(int userId,int startLimit);
 	
 	//insert data set
-	public boolean insertDataset(Dataset dataset);
+	public int insertDataset(Dataset dataset);
+	
+	
+	//Get data set based on project
+	public ArrayList<Dataset> getDatasetProjectList(int projectId);
 	
 	//Last inserted record;
 	public int lastInsertedRecord();
@@ -30,7 +35,7 @@ public interface DatasetDao
 	public int updateURLStatus(String taskId,String address,String keyContacts,String foundation,String techInstall);
 	
 	//update dataset status
-	public int updateStatus(int dataSetId,String status,int scrapCount) throws SQLException;
+	public String updateStatus(int dataSetId,String status,String action) throws SQLException;
 	
 	//Update user limit
 	boolean setPendingRequest(int userId,int count);
@@ -38,6 +43,8 @@ public interface DatasetDao
 	/*//Get dataset history log
 	public ArrayList<DataSetHistoryLog> getDataSetLog(int dataSetId) throws SQLException;*/
 	
-
+	public int insertDatasetMongo(AddressDataMongo dataset);
+	
+	public Dataset getDataSetDetails(int dataSetId);
 	
 }

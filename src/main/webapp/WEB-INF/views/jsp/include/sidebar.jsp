@@ -1,4 +1,6 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c" %>
 <!-- Left side column. contains the sidebar -->
+<%-- <c:if test="${userDetails.fname != null }"> --%>
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -36,6 +38,7 @@
           <ul class="treeview-menu">
           	<li><a href="manageProject"><i class="fa fa-circle-o"></i> Project</a></li>  
             <li><a href="manageDataset"><i class="fa fa-circle-o"></i> Crawler</a></li>
+            <li><a href="manageSmartystreets"><i class="fa fa-circle-o"></i> API</a></li>
             <li><a href="manageSearch"><i class="fa fa-circle-o"></i> Search Engine</a></li>             
           </ul>   
         </li>
@@ -199,3 +202,7 @@
     </section>
     <!-- /.sidebar -->
   </aside>
+<%-- </c:if>
+<c:redirect url="/">
+ 
+</c:redirect> --%>  

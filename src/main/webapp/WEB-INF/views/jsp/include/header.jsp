@@ -1,11 +1,11 @@
-<header class="main-header">
-    <!-- Logo -->
-    <a href="../../index2.html" class="logo">
+<header class="main-header"> 
+    <!-- Logo -->  
+    <a href="<%=request.getContextPath() %>/manageProject" class="logo"> 
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
-    </a>
+      <span class="logo-lg"><b>iA</b> WCE</span>
+    </a> 
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
@@ -108,7 +108,7 @@
             </a>
             <ul class="dropdown-menu"> 
               <!-- User image -->
-              <li class="user-header">
+              <li class="user-header">  
                 <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
